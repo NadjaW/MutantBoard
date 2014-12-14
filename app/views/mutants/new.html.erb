@@ -1,0 +1,19 @@
+<h1>New Mutant Pupil</h1>
+
+<%= form_for :mutant, url: mutants_path do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :text %><br>
+    <%= f.label :superpower %><br>
+    <%= f.text_field :text %>
+  </p>
+
+  <p>
+    <%= f.label :resume %><br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
