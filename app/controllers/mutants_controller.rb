@@ -1,0 +1,2 @@
+class MutantsController < ApplicationController
+end
