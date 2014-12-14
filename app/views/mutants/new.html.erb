@@ -1,6 +1,22 @@
 <h1>New Mutant Pupil</h1>
 
 <%= form_for :mutant, url: mutants_path do |f| %>
+
+  <% # check if there are any errors with @mutant.errors.any?, 
+     # and in that case we show a list of all errors with @mutant.errors.full_messages %>
+  <% if @mutant.errors.any? %>
+    <div id="error_explanation">
+      <% # pluralize is a rails helper that takes a number and a string as its arguments.
+         # If the number is greater than one, the string will be automatically pluralized. %>
+      <h2><%= pluralize(@mutant.errors.count, "error") %> prohibited this mutant from being saved:</h2>
+      <ul>
+        <% @mutant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>
