@@ -14,6 +14,10 @@ class MutantsController < ApplicationController
     @mutant = Mutant.find(params[:id])
   end
 
+  def index
+    @mutants = Mutant.all
+  end
+
   private
     def mutant_params
       params.require(:mutant).permit(:name, :superpower, :cv)

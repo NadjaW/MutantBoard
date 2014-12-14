@@ -1,0 +1,20 @@
+<h1>Listing mutants</h1>
+
+<%= link_to 'New Mutant', new_mutant_path %>
+<%= link_to 'Home', welcome_index_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Superpower</th>
+    <th>cv</th>
+  </tr>
+
+  <% @mutants.each do |mutant| %>
+    <tr>
+      <td><%= mutant.name %></td>
+      <td><%= mutant.superpower %></td>
+      <td><%= mutant.cv %></td>
+    </tr>
+  <% end %>
+</table>
