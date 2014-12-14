@@ -3,14 +3,14 @@
 <%= form_for :mutant, url: mutants_path do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :text %><br>
+    <%= f.text_field :name %><br>
     <%= f.label :superpower %><br>
-    <%= f.text_field :text %>
+    <%= f.text_field :superpower %>
   </p>
 
   <p>
     <%= f.label :cv %><br>
-    <%= f.text_area :text %>
+    <%= f.text_area :cv %>
   </p>
 
   <p>
