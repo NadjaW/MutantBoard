@@ -14,7 +14,8 @@ class MutantsController < ApplicationController
       redirect_to @mutant
     else
       # The render method is used so that the @mutant object is passed back to the new template when it is rendered.
-      # This rendering is done within the same request as the form submission, whereas the redirect_to will tell the browser to issue another request.
+      # This rendering is done within the same request as the form submission,
+      # whereas the redirect_to will tell the browser to issue another request.
       render 'new'
     end
   end
@@ -25,6 +26,27 @@ class MutantsController < ApplicationController
 
   def index
     @mutants = Mutant.all
+  end
+
+  def edit
+    @mutant = Mutant.find(params[:id])
+  end
+
+  def update
+    @mutant = Mutant.find(params[:id])
+
+    if @mutant.update(mutant_params)
+      redirect_to @mutant
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @mutant = Mutant.find(params[:id])
+    @mutant.destroy
+
+    redirect_to mutants_path
   end
 
   private

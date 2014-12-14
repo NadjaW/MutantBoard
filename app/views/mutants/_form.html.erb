@@ -1,22 +1,10 @@
-<% # The reason we can use this shorter, simpler form_for declaration to stand in for either of the other forms is
-   # that @mutant is a resource corresponding to a full set of RESTful routes, and Rails is able to infer which URI and method to use.
-   # For more information about this use of form_for, see http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for-label-Resource-oriented+style.
-%>
-
 <%= form_for @mutant do |f| %>
-  <% # check if there are any errors with @mutant.errors.any?,
-     # and in that case we show a list of all errors with @mutant.errors.full_messages %>
   <% if @mutant.errors.any? %>
   <div id="error_explanation">
-    <% # pluralize is a rails helper that takes a number and a string as its arguments.
-       # If the number is greater than one, the string will be automatically pluralized. %>
-    <h2><%= pluralize(@mutant.errors.count, "error") %> prohibited
-      this article from being saved:</h2>
-    <ul>
+    <h2>Errors:</h2>
     <% @mutant.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <%= msg %><br/>
     <% end %>
-    </ul>
   </div>
   <% end %>
 

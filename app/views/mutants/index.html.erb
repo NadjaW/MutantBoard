@@ -8,6 +8,7 @@
     <th>Name</th>
     <th>Superpower</th>
     <th>cv</th>
+    <th colspan="4" ></th>
   </tr>
 
   <% @mutants.each do |mutant| %>
@@ -15,6 +16,10 @@
       <td><%= mutant.name %></td>
       <td><%= mutant.superpower %></td>
       <td><%= mutant.cv %></td>
+      <td><%= link_to 'Show', mutant_path(mutant) %></td>
+      <td><%= link_to 'Edit', edit_mutant_path(mutant) %></td>
+      <td><%= link_to 'Delete', mutant_path(mutant), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
+
