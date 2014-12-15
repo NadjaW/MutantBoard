@@ -39,6 +39,10 @@ Rails.application.routes.draw do
   #     resource :seller
   #   end
 
+  resources :teams do
+    resource :mutants
+  end
+
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments

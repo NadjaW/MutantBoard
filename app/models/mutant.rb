@@ -1,4 +1,5 @@
 class Mutant < ActiveRecord::Base
+  belongs_to :team
   validates :name, presence: true,
                    length: { minimum: 3 }
 
