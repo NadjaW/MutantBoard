@@ -1,0 +1,26 @@
+<h1>Listing Teams</h1>
+
+<br>
+<p style="margin:20px" >
+  <%= link_to 'New Team', new_team_path, class: 'btn btn-default' %>
+  <%= link_to 'Home', welcome_index_path, class: 'btn btn-default' %>
+</p>
+<br>
+
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Task</th>
+    <th colspan="4" ></th>
+  </tr>
+
+  <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.task %></td>
+        <td><%= link_to 'Show', team_path(team), class: 'btn btn-success btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_team_path(team), class: 'btn btn-warning btn-xs' %></td>
+        <td><%= link_to 'Delete', team_path(team), class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
