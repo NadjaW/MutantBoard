@@ -8,4 +8,7 @@ class Mutant < ActiveRecord::Base
 
   validates :cv, presence: true,
                  length: { minimum: 3 }
+
+  scope :unassigned, -> { where(team_id: nil) }
+
 end

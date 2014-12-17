@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -28,10 +28,8 @@ Rails.application.routes.draw do
   #     end
   #   end
 
-  Rails.application.routes.draw do
-    resources :mutants
-    root 'welcome#index'
-  end
+  resources :mutants
+  root 'welcome#index'
 
   # Example resource route with sub-resources:
   #   resources :products do
@@ -40,7 +38,11 @@ Rails.application.routes.draw do
   #   end
 
   resources :teams do
-    resource :mutants
+    resources :mutants, only: [] do
+      member do
+        post :add
+      end
+    end
   end
 
   # Example resource route with more complex sub-resources:

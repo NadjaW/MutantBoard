@@ -49,6 +49,15 @@ class MutantsController < ApplicationController
     redirect_to mutants_path
   end
 
+  def add
+    @mutant = Mutant.find(params[:id])
+    @team = Team.find(params[:team_id])
+
+    @team.mutants << @mutant
+    redirect_to edit_team_url(@team)
+
+  end
+
   private
     def mutant_params
       params.require(:mutant).permit(:name, :superpower, :cv)

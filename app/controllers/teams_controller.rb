@@ -28,6 +28,7 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+    @unassigned_mutants = Mutant.unassigned
   end
 
   def update

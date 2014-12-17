@@ -2,4 +2,16 @@
 
 <%= render 'form' %>
 
+
+<ul>
+  <%- @team.mutants.each do |mutant| %>
+      <li><%= mutant.name %></li>
+      <li><%= mutant.superpower %></li>
+
+  <% end %>
+</ul>
+
+<%= render 'unassigned_mutants' %>
+
+
 <%= link_to 'Back', teams_path, class: 'btn btn-primary btn-xs' %>

@@ -1,0 +1,10 @@
+  <ul>
+    <%- @unassigned_mutants.each do |mutant| %>
+        <%= form_for @team, url: add_team_mutant_url(@team, mutant), method: :post do |f| %>
+            <li><%= mutant.name %></li>
+            <p style="margin:20px">
+              <%= f.submit class: 'btn btn-success btn-xs' %>
+            </p>
+        <% end %>
+    <% end %>
+  </ul>
